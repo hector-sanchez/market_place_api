@@ -6,8 +6,8 @@ class Api::V1::OrdersControllerTest < ActionDispatch::IntegrationTest
     @order_params = { 
       order: { 
         product_ids_and_quantities: [
-          { product_id: products(:one).id, quantitye: 2 },
-          { product_id: products(:two).id, quantitye: 3 },
+          { product_id: products(:one).id, quantity: 2 },
+          { product_id: products(:two).id, quantity: 3 },
         ]
       } 
     }
