@@ -19,6 +19,13 @@ class Api::V1::ProductsControllerTest < ActionDispatch::IntegrationTest
   test "should show products" do
     get api_v1_products_url, as: :json
     assert_response :success
+
+    json_response = JSON.parse(response.body, symbolize_names: true)
+
+    assert_not_nil json_response.dig(:links, :first)
+    assert_not_nil json_response.dig(:links, :prev)
+    assert_not_nil json_response.dig(:links, :next)
+    assert_not_nil json_response.dig(:links, :last)
   end
 
   test "should create product" do
